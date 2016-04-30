@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/help"
-        android:title="help" />
+<menu xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:android2="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item android2:id="@+id/help"
+        android2:titleCondensed="help"
+        android:showAsAction="never"
+        android2:title="Help Title?" />
 
 </menu>
