@@ -40,11 +40,23 @@ public class listFragment extends Fragment {
     }
 
 
-    public boolean onOptionsItemSelected(Menu menu, MenuInflater inflater) {
-        // Handle item selection
-        inflater.inflate(R.menu.forecastfragment, menu);
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+         inflater.inflate(R.menu.forecastfragment, menu);
+    }
 
-        return true;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.Refresh2) {
+            FetchWeatherTask FWT = new FetchWeatherTask();
+            FWT.execute();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -127,6 +139,8 @@ public class listFragment extends Fragment {
                     return null;
                 }
                 forecastJsonStr = buffer.toString();
+
+                Log.v(LOG_TAG, "Forecast JSON String: " + forecastJsonStr );
             } catch (IOException e) {
                 Log.e("PlaceholderFragment", "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
