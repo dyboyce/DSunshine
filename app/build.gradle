@@ -16,8 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        it.buildConfigField 'String', 'OPEN_WEATHER_MAP_API_KEY', f200abdcf73ad775e75725459739c41f
     }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
